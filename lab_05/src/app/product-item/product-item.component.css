@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    width: auto;
+    height: 200px;
+}
+
+.right {
+    padding-left: 10px;
+}
+
+.right p {
+    padding-top: 5px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.buttons button {
+    margin-left: 10px;
+}
