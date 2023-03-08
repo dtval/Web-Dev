@@ -1,0 +1,8 @@
+<header>
+  <h1>Album</h1>
+  <div class="right">
+    <div class="items" *ngFor="let item of items">
+      <a class="link" routerLink="{{ item.link }}">{{ item.name }}</a>
+    </div>
+  </div>
+</header>
