@@ -1,6 +1,7 @@
 const taskInput = document.querySelector("#newtask-todo");
 const addTaskBtn = document.querySelector("#button-todo");
 const taskList = document.querySelector("#list");
+const inputDate = document.querySelector("input[type='date']");
 
 let tasks = [];
 
@@ -9,9 +10,11 @@ const addTask = () => {
     alert("No tasks");
     return;
   }
-  tasks.push({ name: taskInput.value, done: false });
-  renderTasks();
+  deadline = inputDate.value;
+  tasks.push({ name: taskInput.value, done: false, deadline: new Date(deadline) });
   taskInput.value = "";
+  inputDate.value = "";
+  renderTasks();
 };
 
 const markTask = (index) => {
@@ -27,6 +30,7 @@ const renderTasks = () => {
     taskItem.innerHTML =
       `<input type="checkbox" class="mark-done-btn" ${task.done ? "checked" : ""} />
       <div class="item ${task.done ? "done" : ""}">${task.name}</div>` +
+      `<div>${task.deadline}</div>` +
       `<div class="delete-btn" onclick="deleteTask(${index})"><i class="fa-solid fa-trash-can"></i></div>`;
     taskItem.querySelector(".mark-done-btn").addEventListener("click", () => {
       markTaskDone(index);

@@ -9,13 +9,16 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
-    ])
+    ]),
+    MatCardModule
   ],
   declarations: [
     AppComponent,

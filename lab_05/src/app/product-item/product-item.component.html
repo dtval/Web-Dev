@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div><img [src]="product.img" /></div>
 
   <div class="right">
@@ -18,4 +18,33 @@
       <button type="button" (click)="didDelete()">Delete</button>
     </div>
   </div>
-</div>
+</div> -->
+
+<mat-card class="wrapper">
+  <div>
+    <img
+      mat-card-image
+      src="{{ product.img }}"
+      alt="Photo of a Shiba Inu"
+    />
+  </div>
+  <div class="right">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        <a [href]="product.url" [title]="product.name" target="_blank">
+          {{ product.name }}
+        </a>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ product.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+      <button mat-button (click)="didLike()">LIKE</button>
+      <button mat-button (click)="didDelete()">DELETE</button>
+    </mat-card-actions>
+  </div>
+</mat-card>

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from '../models/album';
 import { AlbumsService } from './albums.service';
 
+import { catchError, map } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',
@@ -17,9 +20,14 @@ export class AlbumsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getAlbums().subscribe((album) => {
-      this.albums = album.slice(0, 7);
-    });
+    // this.service.getAlbums().subscribe((album) => {
+    //   this.albums = album.slice(0, 7);
+    // });
+    this.service.getAlbums()
+      .pipe(map(albums => albums.slice(0, 7)), catchError((error) => throwError(error)))
+      .subscribe((albums) => {
+        this.albums = albums;
+      });
   }
 
   deleteAlbum(album: Album) {
