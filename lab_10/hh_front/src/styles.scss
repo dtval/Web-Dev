@@ -1,0 +1,32 @@
+body {
+    padding: 0;
+    margin: 0px;
+}
+
+a {
+    color: black;
+}
+
+li a {
+    text-decoration: none;
+}
+
+ul {
+    border-bottom: 1px solid black;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 16px;
+}
+
+ul li:hover {
+    background-color: lightgray;
+}
+
+ul li a:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    cursor: pointer;
+}
